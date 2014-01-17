@@ -1,0 +1,16 @@
+web:
+  build: .
+  ports:
+   - 3020:3020
+  volumes:
+   - .:/code
+  links:
+   - db
+db:
+  image: orchardup/mysql
+  ports:
+   - 3306:3306
+  environment:
+   - MYSQL_DATABASE=whitehall_development
+   - MYSQL_USER=whitehall
+   - MYSQL_PASSWORD=whitehall
